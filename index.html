@@ -368,6 +368,25 @@ button {
   animation: beat 1s infinite;
 }
 
+.map-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 ratio */
+  margin-top: 20px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.map-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
 #countdown {
   font-family: 'Playfair Display', serif;
   font-size: 28px;
@@ -468,7 +487,10 @@ const pagesData = [
     <p>Sampai akhirnya aku buat undangan untuk first date kita....</p>
     <p>Tanggal 1 Mei 2026</p>
     <p>Pakuwon Mall Bekasi</p>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.0586493431233!2d106.98942149999999!3d-6.2560043!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e698ddb5eabe029%3A0xc61ce0e879f4e86b!2sPakuwon%20Mall%20Bekasi!5e0!3m2!1sen!2sid!4v1777708870629!5m2!1sen!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <div class="map-container">
+   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.0586493431233!2d106.98942149999999!3d-6.2560043!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e698ddb5eabe029%3A0xc61ce0e879f4e86b!2sPakuwon%20Mall%20Bekasi!5e0!3m2!1sen!2sid!4v1777708870629!5m2!1sen!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+ 
     <p>Klik lagii yahh undangannya hehe...</p>
     <a href="https://almayrizqd.github.io" target="_blank" style="color: var(--accent); font-weight: 500;">https://almayrizqd.github.io</a>
   </div>`
