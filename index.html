@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Untuk Kamu ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400&family=DM+Serif+Text&family=Poppins:wght@300;400&family=Libre+Baskerville&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #fff7f9;
+  --text: #3a2e2e;
+  --accent: #e11d48;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  font-family: 'Crimson Text', serif;
+  color: var(--text);
+}
+
+/* HEADER */
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 60px;
+  backdrop-filter: blur(10px);
+  background: rgba(255,255,255,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Playfair Display', serif;
+}
+
+/* READER */
+.reader {
+  max-width: 700px;
+  margin: 100px auto 120px;
+  padding: 20px;
+}
+
+/* PAGE */
+.page {
+  display: none;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+  animation: fade 0.6s ease;
+}
+
+.page.active {
+  display: block;
+}
+
+@keyframes fade {
+  from { opacity: 0; transform: translateY(15px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+
+
+.cover-front {
+  height: 70vh;
+  border-radius: 24px;
+  position: relative;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px;
+
+  background: linear-gradient(140deg, #fff1f2, #ffe4e6);
+}
+
+/* efek glow lembut */
+.cover-front::before {
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(255,255,255,0.6), transparent 70%);
+  top: -100px;
+  left: -100px;
+  filter: blur(60px);
+}
+
+.cover-front::after {
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(255,182,193,0.4), transparent 70%);
+  bottom: -80px;
+  right: -80px;
+  filter: blur(60px);
+}
+
+.cover-front .inner {
+  position: relative;
+  z-index: 2;
+}
+
+/* judul */
+.cover-front h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 42px;
+  color: #9f1239;
+  margin-bottom: 10px;
+}
+
+/* subtitle */
+.cover-front p {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+/* garis */
+.cover-line {
+  width: 60px;
+  height: 2px;
+  background: #e11d48;
+  margin: 20px auto;
+  opacity: 0.6;
+}
+
+/* animasi masuk */
+.cover-front .inner {
+  animation: fadeUp 1s ease;
+}
+
+/* garis dekorasi */
+.cover-line {
+  width: 60px;
+  height: 2px;
+  background: #e11d48;
+  margin: 20px auto;
+  opacity: 0.6;
+}
+
+/* ===== COVER BELAKANG ===== */
+.cover-back {
+  height: 70vh;
+  border-radius: 24px;
+  position: relative;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px;
+
+  background: linear-gradient(160deg, #7f1d1d, #be123c);
+  color: #fff;
+}
+
+/* glow background */
+.cover-back::before {
+  content: "";
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(255,255,255,0.15), transparent 70%);
+  top: -100px;
+  right: -100px;
+  filter: blur(80px);
+}
+
+/* tambahan layer lembut */
+.cover-back::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at bottom left, rgba(255,255,255,0.08), transparent 60%);
+}
+
+/* konten */
+.cover-back .inner {
+  position: relative;
+  z-index: 2;
+  max-width: 500px;
+}
+
+/* quote */
+.cover-back h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+/* garis kecil */
+.cover-divider {
+  width: 50px;
+  height: 2px;
+  background: rgba(255,255,255,0.6);
+  margin: 20px auto;
+}
+
+/* signature */
+.signature {
+  font-family: 'DM Serif Text', serif;
+  font-size: 16px;
+  opacity: 0.85;
+  letter-spacing: 1px;
+}
+
+/* animasi halus */
+.cover-back .inner {
+  animation: fadeUp 1.2s ease;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* TEXT */
+h2 {
+  font-family: 'Playfair Display', serif;
+}
+
+.font-romantic {
+  font-family: 'DM Serif Text', serif;
+}
+
+.font-clean {
+  font-family: 'Inter', sans-serif;
+}
+
+.font-modern {
+  font-family: 'Poppins', sans-serif;
+}
+
+.font-classic {
+  font-family: 'Libre Baskerville', serif;
+}
+
+.halaman {
+  padding: 30px;
+  min-height: 300px;
+}
+
+p {
+  font-size: 19px;
+  line-height: 1.9;
+}
+
+.photo {
+  margin-top: 20px;
+}
+
+/* SINGLE IMAGE (default) */
+.photo.single {
+  display: flex;
+  justify-content: center;
+}
+
+/* MULTIPLE IMAGES */
+.photo.multiple {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+/* kalau 3 foto */
+.photo.multiple.three {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* gambar umum */
+.photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 14px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+  transition: transform 0.4s ease;
+}
+
+.photo img:hover {
+  transform: scale(1.04);
+}
+
+/* portrait fix */
+.photo-portrait img {
+  height: 100%;
+}
+
+/* responsive */
+@media (max-width: 600px) {
+  .photo.multiple {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* LANDSCAPE (melebar) */
+.photo-landscape img {
+  width: 100%; padding: 10px;
+  max-height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* PORTRAIT (tinggi) */
+.photo-portrait img {
+  width: 100%;
+  max-height: 100%;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* efek lembut */
+.photo img {
+  transition: transform 0.5s ease;
+}
+
+.photo:hover img {
+  transform: scale(1.05);
+}
+
+/* FOOTER */
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 80px;
+  background: rgba(255,255,255,0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  border-radius: 999px;
+  border: none;
+  background: var(--accent);
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* PROPOSAL */
+.proposal {
+  text-align: center;
+}
+
+.heart {
+  font-size: 40px;
+  animation: beat 1s infinite;
+}
+
+#countdown {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: #9f1239;
+
+  margin-top: 20px;
+  letter-spacing: 1.5px;
+  text-align: center;
+
+  line-height: 1.6;
+}
+
+/* versi angka lebih tegas */
+#countdown span {
+  font-family: 'Poppins', sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  color: #e11d48;
+}
+
+@keyframes beat {
+  0%,100% { transform: scale(1);}
+  50% { transform: scale(1.2);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">📖 Sebuah Cerita Untuk Kamu</div>
+
+<div class="reader" id="reader"></div>
+
+<div class="footer">
+  <button id="prev">←</button>
+  <button id="next">→</button>
+</div>
+
+<script>
+const pagesData = [
+
+{
+  content: `
+  <div class="cover-front">
+    <div class="inner">
+      <h1>Untuk Diva</h1>
+      <div class="cover-line"></div>
+      <p>
+        sebuah cerita kecil<br>
+        yang dimulai dari swipe itu… 
+      </p>
+    </div>
+  </div>`
+},
+
+{
+  content: `
+  <div class="halaman font-clean">
+    <h2>Awal yang Sederhana</h2>
+    <p>Awalnya cuma dari sebuah swipe biasa di Bumble.</p>
+    <p>Nggak ada ekspektasi apa-apa… cuma iseng, seperti hari-hari lainnya.</p>
+    <p>Tapi ternyata, dari situ semuanya mulai berbeda.</p>
+    <p>Kita chat hampir setiap hari sampai akhirnya kita follow instagram masing-masing.</p>
+
+    <div class="photo multiple photo-portrait">
+      <img src="images/bumble.jpeg" alt="Awal Bumble">
+      <img src="images/bumble2.jpeg" alt="Awal Bumble">
+    </div>
+
+  </div>`
+},
+
+{
+  content: `
+  <div class="halaman font-modern">
+    <h2>Dua Minggu yang Aneh</h2>
+    <p>Kita chat, telpon… hampir setiap hari.</p>
+    <p>Yang awalnya cuma "hai", berubah jadi cerita panjang tanpa sadar.</p>
+    <p>Lucunya, rasanya kayak udah kenal lama, padahal belum pernah ketemu.</p>
+    <p>Kita selalu tukeran foto untuk jaga komunikasi kita</p>
+    <div class="photo multiple photo-landscape">
+      <img src="images/fotokamu.jpeg" alt="Foto Kamu">
+      <img src="images/fotokamu2.jpeg" alt="Foto Kamu 2">
+    </div>
+    <div class="photo multiple photo-portrait">
+      <img src="images/fotoaku.jpeg" alt="Foto Aku">
+      <img src="images/fotoaku2.jpeg" alt="Foto Aku">
+    </div>
+  </div>`
+},
+
+{
+  content: `
+  <div class="halaman font-modern">
+    <h2>Dua Minggu yang Aneh</h2>
+    <p>Lucunya, rasanya kayak udah kenal lama, padahal belum pernah ketemu.</p>
+    <p>Sampai akhirnya aku buat undangan untuk first date kita....</p>
+    <p>Tanggal 1 Mei 2026</p>
+    <p>Pakuwon Mall Bekasi</p>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.0586493431233!2d106.98942149999999!3d-6.2560043!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e698ddb5eabe029%3A0xc61ce0e879f4e86b!2sPakuwon%20Mall%20Bekasi!5e0!3m2!1sen!2sid!4v1777708870629!5m2!1sen!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <p>Klik lagii yahh undangannya hehe...</p>
+    <a href="https://almayrizqd.github.io" target="_blank" style="color: var(--accent); font-weight: 500;">https://almayrizqd.github.io</a>
+  </div>`
+},
+
+{
+  content: `
+  <div class="halaman font-classic">
+    <h2>Akhirnya Bertemu</h2>
+    <p>Kemarin, di Pakuwon Mall Bekasi…</p>
+    <p>Akhirnya kita ketemu juga.</p>
+    <p>Dan jujur aja, awalnya aku agak deg-degan.</p>
+    <p>Tapi setelah kita ngobrol, aku merasa lebih nyaman.</p>
+    <p>Foto-foto yang kita ambil bareng itu jadi kenangan manis yang nggak akan aku lupain. Yeyyy!</p>
+    <div class="photo multiple photo-landscape">
+      <img src="images/ketemu1.jpeg" alt="Yeyy Ketemu">
+      <img src="images/ketemu2.jpeg" alt="Yeyy Ketemu 2">
+    </div>
+        <div class="photo photo-landscape">
+      <img src="images/ketemu3.jpeg" alt="Yeyy Ketemu">
+    </div>
+  </div>`
+},
+
+{
+  content: `
+  <div class="halaman font-romantic">
+    <h2>Gallery Foto-foto Kitaaa</h2>
+    <div class="photo multiple photo-portrait">
+      <img src="images/ketemu4.jpeg" alt="Yeyy Ketemu 4">
+      <img src="images/ketemu5.jpeg" alt="Yeyy Ketemu 5">
+      <img src="images/ketemu6.jpeg" alt="Yeyy Ketemu 4">
+      <img src="images/ketemu7.jpeg" alt="Yeyy Ketemu 5">
+    </div>
+    <div class="photo multiple photo-landscape">
+      <img src="images/ketemu4.jpeg" alt="Yeyy Ketemu 4">
+      <img src="images/ketemu5.jpeg" alt="Yeyy Ketemu 5">
+    </div>
+  </div>`
+},
+
+{
+  content: `
+<div class="halaman font-clean">
+  <div class="proposal">
+    <div class="heart">❤️</div>
+    <h2>Diva... aku penasaran...</h2>
+
+    <p>kalau cerita ini kita lanjut, kira-kira bakal jadi cerita yang seperti apa ya?</p>
+
+    <p>aku ngerasa… aku pengen kenal kamu lebih dekat, lebih dari sekadar seperti sekarang.</p>
+
+    <p>nggak perlu dijawab sekarang kok…</p>
+    <p>mungkin nanti, di tanggal 16 Mei, waktu kita ketemu lagi 😊</p>
+    <p id="countdown" style="margin-top:15px; font-weight:500;"></p>
+  </div>
+</div>`
+},
+
+  {
+    content: `
+<div class="cover-back">
+  <div class="inner">
+    <h2>
+      “Kalau ini cuma awal,  
+      aku harap kita nggak berhenti di sini.”
+    </h2>
+
+    <div class="cover-divider"></div>
+
+    <div class="signature">
+      — dari aku, untuk kamu
+    </div>
+  </div>
+</div>`
+  }
+
+];
+
+const reader = document.getElementById("reader");
+let currentPage = 0;
+let pages = [];
+
+function render() {
+  pagesData.forEach(p => {
+    const div = document.createElement("div");
+    div.className = "page";
+    div.innerHTML = p.content;
+    reader.appendChild(div);
+    pages.push(div);
+  });
+}
+
+function showPage(i) {
+  pages.forEach(p => p.classList.remove("active"));
+  pages[i].classList.add("active");
+}
+
+function nextPage() {
+  if (currentPage < pages.length - 1) {
+    currentPage++;
+    showPage(currentPage);
+  }
+}
+
+function prevPage() {
+  if (currentPage > 0) {
+    currentPage--;
+    showPage(currentPage);
+  }
+}
+
+
+
+render();
+
+document.getElementById("next").onclick = nextPage;
+document.getElementById("prev").onclick = prevPage;
+
+showPage(0);
+
+function startCountdown() {
+  const countdownEl = document.getElementById("countdown");
+  if (!countdownEl) return;
+
+  // target: 16 Mei 2026 jam 00:00
+  const targetDate = new Date("May 16, 2026 00:00:00").getTime();
+
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = targetDate - now;
+
+    if (distance < 0) {
+      countdownEl.innerHTML = "✨ Hari ini kita ketemu 😊";
+      return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((distance / (1000 * 60)) % 60);
+    const seconds = Math.floor((distance / 1000) % 60);
+
+    countdownEl.innerHTML =
+  `<span>${days}</span> hari 
+   <span>${hours}</span> jam 
+   <span>${minutes}</span> menit 
+   <span>${seconds}</span> detik`;
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+}
+
+startCountdown();
+</script>
+
+</body>
+</html>

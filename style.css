@@ -1,0 +1,106 @@
+body {
+  margin: 0;
+  font-family: 'Georgia', serif;
+  background: #f4f4f4;
+  transition: 0.3s;
+}
+
+.reader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+/* BOOK */
+.book {
+  position: relative;
+  width: 350px;
+  height: 500px;
+  perspective: 2000px;
+}
+
+/* PAGE */
+.page, .cover {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: white;
+  border-radius: 6px;
+  transform-origin: left;
+  transition: transform 0.8s;
+  backface-visibility: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* COVER */
+.cover.front {
+  background: linear-gradient(135deg, #2c3e50, #34495e);
+  color: white;
+  z-index: 100;
+  text-align: center;
+}
+
+.cover.back {
+  background: #2c3e50;
+  color: white;
+  transform: rotateY(180deg);
+}
+
+/* PAGE STYLE */
+.page {
+  overflow-y: auto;
+}
+
+/* FLIPPED */
+.page.flipped {
+  transform: rotateY(-180deg);
+}
+
+.cover.flipped {
+  transform: rotateY(-180deg);
+}
+
+/* CONTROL */
+.controls {
+  margin-top: 20px;
+}
+
+button {
+  padding: 8px 12px;
+  margin: 5px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* DARK MODE */
+.dark {
+  background: #111;
+}
+
+.dark .page {
+  background: #1e1e1e;
+  color: #ddd;
+}
+
+.cover.back {
+  background: #2c3e50;
+  color: white;
+  transform: rotateY(180deg);
+  transform-origin: left;
+  z-index: 0;
+}
+
+/* saat tampil */
+.cover.back.show {
+  z-index: 150;
+}
+
+/* saat di-flip (tutup buku) */
+.cover.back.flipped {
+  transform: rotateY(0deg);
+}
