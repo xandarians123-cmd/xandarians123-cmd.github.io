@@ -63,8 +63,18 @@ body {
 
 
 
+.cover-front img,
+.cover-back img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: auto;
+}
+
 .cover-front {
-  height: 70vh;
   border-radius: 24px;
   position: relative;
   overflow: hidden;
@@ -73,7 +83,6 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 40px;
 
   background: linear-gradient(140deg, #fff1f2, #ffe4e6);
 }
@@ -147,16 +156,13 @@ body {
 
 /* ===== COVER BELAKANG ===== */
 .cover-back {
-  height: 70vh;
   border-radius: 24px;
   position: relative;
   overflow: hidden;
-
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 40px;
 
   background: linear-gradient(160deg, #7f1d1d, #be123c);
   color: #fff;
@@ -476,14 +482,7 @@ const pagesData = [
 {
   content: `
   <div class="cover-front">
-    <div class="inner">
-      <h1>Untuk Diva</h1>
-      <div class="cover-line"></div>
-      <p>
-        sebuah cerita kecil<br>
-        yang dimulai dari swipe itu… 
-      </p>
-    </div>
+    <img src="images/cover-depan.jpeg" alt="Cover Depan">
   </div>`
 },
 
@@ -640,18 +639,7 @@ const pagesData = [
   {
     content: `
 <div class="cover-back">
-  <div class="inner">
-    <h2>
-      “Kalau ini cuma awal,  
-      aku harap kita nggak berhenti di sini.”
-    </h2>
-
-    <div class="cover-divider"></div>
-
-    <div class="signature">
-      — dari aku, untuk kamu
-    </div>
-  </div>
+  <img src="images/cover-belakang.jpeg" alt="Cover Belakang">
 </div>`
   }
 
