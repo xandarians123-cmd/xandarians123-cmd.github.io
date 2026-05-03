@@ -412,11 +412,53 @@ button {
   0%,100% { transform: scale(1);}
   50% { transform: scale(1.2);}
 }
+.music-control {
+  position: absolute;
+  right: 20px;
+  cursor: pointer;
+}
+
+/* DISK */
+.disk {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+
+  background: radial-gradient(circle at center, #111 20%, #444 21%, #111 40%, #000 70%);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+
+  position: relative;
+}
+
+/* lubang tengah */
+.disk::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #ccc;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* ANIMASI PUTAR */
+.spin {
+  animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
 </style>
 </head>
 
 <body>
-
+<div class="music-control" id="musicControl">
+  <div class="disk"></div>
+</div>
 <div class="header">📖 Sebuah Cerita Untuk Kamu, Diva</div>
 
 <div class="reader" id="reader"></div>
@@ -551,6 +593,47 @@ const pagesData = [
   </div>
 </div>`
 },
+{
+  content: `
+<div class="halaman font-clean">
+  <div class="proposal">
+    <div class="heart">❤️</div>
+    <h2>Next Date</h2>
+
+    <p>📍 Hitauchi Cafe</p>
+
+    <p>
+      Aku ingin ngajak kamu untuk buat kenangan baru lagi sama sama. ✨  
+    </p>
+
+    <div class="map-container">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.894998892483!2d106.8257872!3d-6.277533699999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f37f691e6417%3A0xe84ca85e7b829352!2sHitauchi%20Cafe!5e0!3m2!1sen!2sid!4v1777787496135!5m2!1sen!2sid"
+        width="600"
+        height="450"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy">
+      </iframe>
+    </div>
+
+    <p>
+      Aku udah nggak sabar ketemu kamu lagi, buat ngobrol, buat ketawa bareng, dan buat bikin kenangan baru yang lebih seru lagi.
+    </p>
+
+    <p>
+      Sampai ketemu tanggal <b>16 Mei</b> nanti yaa sayang... 💌  
+    </p>
+
+    <p id="countdown" style="margin-top:15px; font-weight:500;"></p>
+    <br>
+
+    <p>
+      Love youu Diva... ❤️  
+      Sampai ketemu lagi di tanggal 16 Mei yaa... 😊
+    </p>
+  </div>
+</div>`
+},
 
   {
     content: `
@@ -647,6 +730,27 @@ function startCountdown() {
 }
 
 startCountdown();
+</script>
+<audio id="bg-music" loop>
+  <source src="./music2.mp3" type="audio/mpeg">
+</audio>
+<script>
+const music = document.getElementById("bg-music");
+const musicBtn = document.getElementById("musicControl");
+const disk = document.querySelector(".disk");
+
+let isPlaying = false;
+
+musicBtn.addEventListener("click", () => {
+  if (isPlaying) {
+    music.pause();
+    disk.classList.remove("spin");
+  } else {
+    music.play().catch(err => console.log(err));
+    disk.classList.add("spin");
+  }
+  isPlaying = !isPlaying;
+});
 </script>
 
 </body>
