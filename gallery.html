@@ -1,0 +1,1152 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery Kita</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600&family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@600&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #fff7f9;
+            --text: #3a2e2e;
+            --accent: #22c55e;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            font-family: 'Crimson Text', serif;
+            color: var(--text);
+        }
+
+        /* HEADER */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 70px;
+            z-index: 9999;
+
+            backdrop-filter: blur(14px);
+            background: rgba(255, 255, 255, 0.75);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .header-inner {
+            width: 100%;
+            max-width: 1100px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+
+        /* BRAND */
+        .brand {
+            font-size: 16px;
+            font-weight: 600;
+            color: #e11d48;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* NAV */
+        .nav {
+            display: flex;
+            gap: 18px;
+        }
+
+        .nav a {
+            text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            color: #444;
+            padding: 8px 12px;
+            border-radius: 999px;
+            transition: 0.3s ease;
+        }
+
+        .nav a:hover {
+            background: #dcfce7;
+            color: #e11d48;
+        }
+
+        /* HAMBURGER */
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #e11d48;
+        }
+
+        /* CALENDAR SECTION */
+        .calendar-section {
+            padding-top: 120px;
+            display: flex;
+            justify-content: center;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-bottom: 50px;
+        }
+
+        .calendar-container {
+            width: 100%;
+            max-width: 1100px;
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow:
+                0 10px 40px rgba(0, 0, 0, 0.08);
+            display: flex;
+        }
+
+        /* LEFT PANEL */
+        .calendar-left {
+            width: 320px;
+            background: linear-gradient(180deg, #e11d48, #ff3762);
+            color: white;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .big-date {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .big-date h1 {
+            margin: 0;
+            font-size: 110px;
+            line-height: 1;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .big-date span {
+            font-size: 34px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .event-box {
+            margin-top: 40px;
+        }
+
+        .event-box h3 {
+            margin-bottom: 16px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+        }
+
+        .event-item {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 14px;
+            border-radius: 14px;
+            margin-bottom: 14px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .event-item strong {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        .event-item span {
+            font-size: 13px;
+            opacity: 0.9;
+        }
+
+        .create-event {
+            margin-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.4);
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .plus-btn {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            border: 2px solid white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .plus-btn:hover {
+            background: white;
+            color: #e11d48;
+        }
+
+        /* RIGHT PANEL */
+        .calendar-right {
+            flex: 1;
+            padding: 30px;
+        }
+
+        .calendar-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .calendar-top h2 {
+            margin: 0;
+            font-size: 28px;
+            color: #444;
+        }
+
+        .month-nav {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .month-nav button {
+            border: none;
+            background: #f3f4f6;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .month-nav button:hover {
+            background: #e11d48;
+            color: white;
+        }
+
+        .weekdays,
+        .days {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            text-align: center;
+        }
+
+        .weekdays div {
+            padding: 16px 0;
+            font-family: 'Poppins', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            color: #999;
+        }
+
+        .days div {
+            padding: 18px 0;
+            font-family: 'Poppins', sans-serif;
+            font-size: 15px;
+            position: relative;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .days div:hover {
+            color: #e11d48;
+        }
+
+        .today {
+            width: 42px;
+            height: 42px;
+            background: #e11d48;
+            color: white;
+            border-radius: 50%;
+            display: flex !important;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+            font-weight: bold;
+        }
+
+        .event-dot::after {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: #e11d48;
+            border-radius: 50%;
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+
+            .calendar-container {
+                flex-direction: column;
+            }
+
+            .calendar-left {
+                width: 100%;
+            }
+
+            .big-date h1 {
+                font-size: 90px;
+            }
+
+            .calendar-right {
+                padding: 20px;
+            }
+
+            .nav {
+                position: absolute;
+                top: 70px;
+                right: 0;
+                left: 0;
+
+                background: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(10px);
+
+                flex-direction: column;
+                gap: 0;
+
+                overflow: hidden;
+                max-height: 0;
+                transition: 0.3s ease;
+            }
+
+            .nav a {
+                padding: 14px 20px;
+                border-radius: 0;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            }
+
+            .nav.active {
+                max-height: 300px;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+        }
+
+        /* EVENT ACTIVE */
+        .has-event {
+            position: relative;
+        }
+
+        .has-event::after {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: #e11d48;
+            border-radius: 50%;
+            position: absolute;
+            bottom: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .has-event:hover {
+            color: #e11d48;
+            font-weight: 600;
+        }
+
+        /* MODAL */
+        .event-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.45);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 99999;
+
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.3s ease;
+        }
+
+        .event-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            width: 90%;
+            max-width: 700px;
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            animation: popup 0.3s ease;
+        }
+
+        @keyframes popup {
+            from {
+                transform: scale(0.9);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .modal-header {
+            background: linear-gradient(180deg, #e11d48, #ff3762);
+            color: white;
+            padding: 24px;
+            position: relative;
+        }
+
+        .modal-header h2 {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .modal-header p {
+            margin-top: 8px;
+            opacity: 0.9;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 18px;
+            right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .modal-body {
+            padding: 24px;
+        }
+
+        /* CAROUSEL */
+        .carousel {
+            position: relative;
+            width: 100%;
+            margin-top: 20px;
+            overflow: hidden;
+            border-radius: 18px;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.4s ease;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+        }
+
+        .carousel-slide img,
+        .carousel-slide video {
+            width: 100%;
+            height: 420px;
+            display: block;
+            border-radius: 18px;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 42px;
+            height: 42px;
+            border: none;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.85);
+            cursor: pointer;
+            font-size: 20px;
+            z-index: 10;
+            transition: 0.3s;
+        }
+
+        .carousel-btn:hover {
+            background: white;
+        }
+
+        .carousel-prev {
+            left: 14px;
+        }
+
+        .carousel-next {
+            right: 14px;
+        }
+
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 14px;
+        }
+
+        .carousel-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #ddd;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .carousel-dot.active {
+            background: #e11d48;
+        }
+
+        .media-landscape {
+            width: 100%;
+            height: 420px;
+            object-fit: cover;
+        }
+
+        .media-portrait {
+            width: 100%;
+            height: 420px;
+            object-fit: contain;
+            background: #111;
+            padding: 10px;
+        }
+
+        @media (max-width: 768px) {
+
+            .media-landscape,
+            .media-portrait {
+                height: 260px;
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            .carousel-slide img,
+            .carousel-slide video {
+                height: 260px;
+            }
+        }
+
+        /* ACCORDION */
+        .accordion-group {
+            margin-top: 40px;
+        }
+
+        .accordion-item {
+            margin-bottom: 18px;
+            border-radius: 18px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(10px);
+        }
+
+        .accordion-header {
+            padding: 18px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            transition: 0.3s ease;
+        }
+
+        .accordion-header:hover {
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .accordion-header h3 {
+            margin: 0;
+            font-size: 17px;
+        }
+
+        .accordion-header span {
+            font-size: 24px;
+            font-weight: 300;
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: 0.4s ease;
+            padding: 0 18px;
+        }
+
+        .accordion-item.active .accordion-content {
+            max-height: 500px;
+            padding: 0 18px 18px;
+        }
+
+        .accordion-item.active .accordion-header span {
+            content: "−";
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <div class="header-inner">
+
+            <div class="brand">
+                📸 <span>Gallery Kenangan Kita</span>
+            </div>
+
+            <div class="nav">
+                <a href="index.html">📚 Cerita Kita</a>
+                <a href="https://almayrizqd.github.io" target="_blank">💌 Invitation</a>
+                <a href="gallery.html">📸 Gallery</a>
+            </div>
+
+            <div class="menu-toggle" id="menuToggle">☰</div>
+        </div>
+    </div>
+
+    <!-- CALENDAR -->
+    <section class="calendar-section">
+
+        <div class="calendar-container">
+
+            <!-- LEFT -->
+            <div class="calendar-left">
+
+                <div>
+                    <div class="big-date">
+                        <h1 id="todayDate">27</h1>
+                        <span id="todayDay">THURSDAY</span>
+                    </div>
+
+                    <!-- ACCORDION -->
+                    <div class="accordion-group">
+
+                        <!-- LAST EVENT -->
+                        <div class="accordion-item active">
+
+                            <div class="accordion-header">
+                                <h3>❤️ Last Event</h3>
+                                <span>−</span>
+                            </div>
+
+                            <div class="accordion-content">
+
+                                <div class="event-item">
+                                    <strong>First Date</strong>
+                                    <span>1 Mei 2026</span>
+                                </div>
+
+                                <div class="event-item">
+                                    <strong>Second Date dan bertemu mama papa</strong>
+                                    <span>16 Mei 2026</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- NEXT EVENT -->
+                        <div class="accordion-item">
+
+                            <div class="accordion-header">
+                                <h3>❤️ Next Event</h3>
+                                <span>+</span>
+                            </div>
+
+                            <div class="accordion-content">
+
+                                <div class="event-item">
+                                    <strong>Ketemu Mama Papa</strong>
+                                    <span>30/31 Mei 2026</span>
+                                </div>
+
+                                <div class="event-item">
+                                    <strong>Aquarium Date</strong>
+                                    <span>22 Juni 2026</span>
+                                </div>
+
+                                <div class="event-item">
+                                    <strong>Tracking</strong>
+                                    <span>Belum ditentukan</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- RIGHT -->
+            <div class="calendar-right">
+
+                <div class="calendar-top">
+                    <h2 id="monthYear"></h2>
+
+                    <div class="month-nav">
+                        <button id="prevBtn">‹</button>
+                        <button id="nextBtn">›</button>
+                    </div>
+                </div>
+
+                <div class="weekdays">
+                    <div>SUN</div>
+                    <div>MON</div>
+                    <div>TUE</div>
+                    <div>WED</div>
+                    <div>THU</div>
+                    <div>FRI</div>
+                    <div>SAT</div>
+                </div>
+
+                <div class="days" id="calendarDays"></div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- EVENT MODAL -->
+    <div class="event-modal" id="eventModal">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <span class="close-modal" id="closeModal">✕</span>
+
+                <h2 id="modalTitle">Event Title</h2>
+                <p id="modalDate">Tanggal Event</p>
+            </div>
+
+            <div class="modal-body">
+
+                <p id="modalDescription">
+                    Deskripsi event
+                </p>
+
+                <div class="carousel">
+
+                    <button class="carousel-btn carousel-prev" id="prevSlide">‹</button>
+
+                    <div class="carousel-track" id="modalGallery"></div>
+
+                    <button class="carousel-btn carousel-next" id="nextSlide">›</button>
+
+                </div>
+
+                <div class="carousel-indicators" id="carouselIndicators"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        const menuToggle = document.getElementById("menuToggle");
+        const nav = document.querySelector(".nav");
+
+        menuToggle.addEventListener("click", () => {
+            nav.classList.toggle("active");
+        });
+
+        // CALENDAR
+        const monthYear = document.getElementById("monthYear");
+        const calendarDays = document.getElementById("calendarDays");
+
+        const todayDate = document.getElementById("todayDate");
+        const todayDay = document.getElementById("todayDay");
+
+        const prevBtn = document.getElementById("prevBtn");
+        const nextBtn = document.getElementById("nextBtn");
+
+        const months = [
+            "January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+        ];
+
+        const daysName = [
+            "SUNDAY", "MONDAY", "TUESDAY", "WEDNESDAY",
+            "THURSDAY", "FRIDAY", "SATURDAY"
+        ];
+
+        let currentDate = new Date();
+
+        // MODAL
+        const eventModal = document.getElementById("eventModal");
+        const closeModal = document.getElementById("closeModal");
+
+        const modalTitle = document.getElementById("modalTitle");
+        const modalDate = document.getElementById("modalDate");
+        const modalDescription = document.getElementById("modalDescription");
+        const modalGallery = document.getElementById("modalGallery");
+
+        let currentSlide = 0;
+
+        function openEventModal(eventData) {
+
+            modalTitle.innerText = eventData.title;
+            modalDate.innerText = eventData.date;
+            modalDescription.innerText = eventData.description;
+
+            modalGallery.innerHTML = "";
+            carouselIndicators.innerHTML = "";
+
+            currentSlide = 0;
+
+            eventData.images.forEach((item, index) => {
+
+                const slide = document.createElement("div");
+                slide.classList.add("carousel-slide");
+
+                const orientationClass =
+                    item.orientation === "portrait"
+                        ? "media-portrait"
+                        : "media-landscape";
+
+                if (item.type === "image") {
+
+                    slide.innerHTML = `
+            <img
+                src="${item.src}"
+                class="${orientationClass}"
+                alt=""
+            >
+        `;
+
+                } else if (item.type === "video") {
+
+                    slide.innerHTML = `
+            <video
+                controls
+                class="${orientationClass}"
+            >
+                <source src="${item.src}" type="video/mp4">
+            </video>
+        `;
+                }
+
+                modalGallery.appendChild(slide);
+
+                // INDICATOR
+                const dot = document.createElement("div");
+                dot.classList.add("carousel-dot");
+
+                if (index === 0) {
+                    dot.classList.add("active");
+                }
+
+                dot.addEventListener("click", () => {
+                    currentSlide = index;
+                    updateCarousel();
+                });
+
+                carouselIndicators.appendChild(dot);
+            });
+
+            updateCarousel();
+
+            eventModal.classList.add("active");
+        }
+
+        closeModal.addEventListener("click", () => {
+            eventModal.classList.remove("active");
+        });
+
+        eventModal.addEventListener("click", (e) => {
+            if (e.target === eventModal) {
+                eventModal.classList.remove("active");
+            }
+        });
+
+        // ACCORDION
+        const accordionItems = document.querySelectorAll(".accordion-item");
+
+        accordionItems.forEach(item => {
+
+            const header = item.querySelector(".accordion-header");
+            const icon = header.querySelector("span");
+
+            header.addEventListener("click", () => {
+
+                item.classList.toggle("active");
+
+                if (item.classList.contains("active")) {
+                    icon.innerText = "−";
+                } else {
+                    icon.innerText = "+";
+                }
+            });
+
+        });
+
+        const prevSlide = document.getElementById("prevSlide");
+        const nextSlide = document.getElementById("nextSlide");
+        const carouselIndicators = document.getElementById("carouselIndicators");
+
+        function updateCarousel() {
+
+            modalGallery.style.transform =
+                `translateX(-${currentSlide * 100}%)`;
+
+            const dots = document.querySelectorAll(".carousel-dot");
+
+            dots.forEach(dot => dot.classList.remove("active"));
+
+            if (dots[currentSlide]) {
+                dots[currentSlide].classList.add("active");
+            }
+        }
+
+        prevSlide.addEventListener("click", () => {
+
+            const totalSlides =
+                document.querySelectorAll(".carousel-slide").length;
+
+            currentSlide--;
+
+            if (currentSlide < 0) {
+                currentSlide = totalSlides - 1;
+            }
+
+            updateCarousel();
+        });
+
+        nextSlide.addEventListener("click", () => {
+
+            const totalSlides =
+                document.querySelectorAll(".carousel-slide").length;
+
+            currentSlide++;
+
+            if (currentSlide >= totalSlides) {
+                currentSlide = 0;
+            }
+
+            updateCarousel();
+        });
+
+        function renderCalendar() {
+
+            const year = currentDate.getFullYear();
+            const month = currentDate.getMonth();
+
+            monthYear.innerText = `${months[month]} ${year}`;
+
+            const firstDay = new Date(year, month, 1).getDay();
+            const lastDate = new Date(year, month + 1, 0).getDate();
+
+            calendarDays.innerHTML = "";
+
+            for (let i = 0; i < firstDay; i++) {
+                const blank = document.createElement("div");
+                calendarDays.appendChild(blank);
+            }
+
+            for (let day = 1; day <= lastDate; day++) {
+
+                const dayDiv = document.createElement("div");
+                dayDiv.innerText = day;
+
+                const today = new Date();
+
+                if (
+                    day === today.getDate() &&
+                    month === today.getMonth() &&
+                    year === today.getFullYear()
+                ) {
+                    dayDiv.classList.add("today");
+                }
+
+                const events = {
+                    "2026-05-01": {
+                        title: "First Date ❤️",
+                        date: "1 Mei 2026",
+                        description: "First Date Kitaa 💕",
+                        images: [
+                            {
+                                type: "image",
+                                src: "/images/ketemu1.jpeg",
+                                orientation: "landscape",
+                            },
+                            {
+                                type: "image",
+                                src: "/images/ketemu2.jpeg",
+                                orientation: "landscape",
+                            },
+                            {
+                                type: "image",
+                                src: "/images/ketemu3.jpeg",
+                                orientation: "landscape",
+                            },
+                            {
+                                type: "image",
+                                src: "/images/ketemu4.jpeg",
+                                orientation: "portrait",
+                            },
+                            {
+                                type: "image",
+                                src: "/images/ketemu5.jpeg",
+                                orientation: "portrait",
+                            },
+                            {
+                                type: "image",
+                                src: "/images/ketemu6.jpeg",
+                                orientation: "portrait",
+                            },
+                            {
+                                type: "image",
+                                src: "/images/ketemu7.jpeg",
+                                orientation: "portrait",
+                            },
+                            {
+                                type: "video",
+                                src: "/images/video1.mp4",
+                                orientation: "portrait",
+                            },
+                            {
+                                type: "video",
+                                src: "/images/video2.mp4",
+                                orientation: "landscape",
+                            }
+                        ]
+                    },
+                    "2026-05-16": {
+                        title: "Ketemu Mama Papa ❤️",
+                        date: "16 Mei 2026",
+                        description: "Ketemu mama papa dan second date kitaa 💕",
+                        images: [
+                            {
+                                type: "image",
+                                src: "/images/ketemu2-1.jpeg",
+                                orientation: "landscape",
+                            },
+                            {
+                                type: "image",
+                                src: "/images/ketemu2-2.jpeg",
+                                orientation: "landscape",
+                            },
+                            {
+                                type: "image",
+                                src: "/images/ketemu2-3.jpeg",
+                                orientation: "landscape",
+                            },
+                            {
+                                type: "image",
+                                src: "/images/ketemu2-4.jpeg",
+                                orientation: "portrait",
+                            },
+                            {
+                                type: "image",
+                                src: "/images/ketemu2-5.jpeg",
+                                orientation: "portrait",
+                            },
+                            {
+                                type: "image",
+                                src: "/images/ketemu2-6.jpeg",
+                                orientation: "portrait",
+                            },
+                            {
+                                type: "image",
+                                src: "/images/ketemu2-7.jpeg",
+                                orientation: "landscape",
+                            },
+                            {
+                                type: "image",
+                                src: "/images/ketemu2-8.jpeg",
+                                orientation: "portrait",
+                            },
+                            {
+                                type: "image",
+                                src: "/images/ketemu2-9.jpeg",
+                                orientation: "portrait",
+                            },
+                            {
+                                type: "image",
+                                src: "/images/ketemu2-10.jpeg",
+                                orientation: "portrait",
+                            },
+                            {
+                                type: "image",
+                                src: "/images/ketemu2-11.jpeg",
+                                orientation: "landscape",
+                            },
+                            {
+                                type: "video",
+                                src: "/images/ketemu2-12.mp4",
+                                orientation: "portrait",
+                            },
+                        ]
+                    },
+                    "2026-05-30": {
+                        title: "Ketemu Mama Papa ❤️",
+                        date: "30 Mei 2026",
+                        description: "Coming Soon yaahhh sayang 💕",
+                        images: [
+                        ]
+                    },
+
+                    "2026-06-22": {
+                        title: "Aquarium Date 🐠",
+                        date: "22 Juni 2026",
+                        description: "Coming Soon yaahhh sayang 💕",
+                        images: [
+
+                        ]
+                    }
+                };
+
+                const fullDate =
+                    `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+
+                if (events[fullDate]) {
+
+                    dayDiv.classList.add("has-event");
+
+                    dayDiv.addEventListener("click", () => {
+                        openEventModal(events[fullDate]);
+                    });
+                }
+
+                calendarDays.appendChild(dayDiv);
+            }
+
+            // LEFT BIG DATE
+            const today = new Date();
+
+            todayDate.innerText = today.getDate();
+            todayDay.innerText = daysName[today.getDay()];
+        }
+
+        prevBtn.addEventListener("click", () => {
+            currentDate.setMonth(currentDate.getMonth() - 1);
+            renderCalendar();
+        });
+
+        nextBtn.addEventListener("click", () => {
+            currentDate.setMonth(currentDate.getMonth() + 1);
+            renderCalendar();
+        });
+
+        renderCalendar();
+    </script>
+
+</body>
+
+</html>

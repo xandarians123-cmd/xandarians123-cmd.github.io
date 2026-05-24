@@ -1,493 +1,623 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Untuk Kamu ❤️</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400&family=DM+Serif+Text&family=Poppins:wght@300;400&family=Libre+Baskerville&display=swap" rel="stylesheet">
-<style>
-:root {
-  --bg: #fff7f9;
-  --text: #3a2e2e;
-  --accent: #e11d48;
-}
-
-* { box-sizing: border-box; }
-
-body {
-  margin: 0;
-  background: var(--bg);
-  font-family: 'Crimson Text', serif;
-  color: var(--text);
-}
-
-/* HEADER */
-.header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height: 60px;
-  backdrop-filter: blur(10px);
-  background: rgba(255,255,255,0.7);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Playfair Display', serif;
-}
-
-/* READER */
-.reader {
-  max-width: 700px;
-  margin: 100px auto 120px;
-  padding: 20px;
-}
-
-/* PAGE */
-.page {
-  display: none;
-  background: white;
-  border-radius: 20px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-  animation: fade 0.6s ease;
-}
-
-.page.active {
-  display: block;
-}
-
-@keyframes fade {
-  from { opacity: 0; transform: translateY(15px);}
-  to { opacity: 1; transform: translateY(0);}
-}
-
-
-
-.cover-front img,
-.cover-back img {
-  max-width: 100%;
-  max-height: 100%;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-  display: block;
-  margin: auto;
-}
-
-.cover-front {
-  border-radius: 24px;
-  position: relative;
-  overflow: hidden;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-
-  background: linear-gradient(140deg, #fff1f2, #ffe4e6);
-}
-
-/* efek glow lembut */
-.cover-front::before {
-  content: "";
-  position: absolute;
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, rgba(255,255,255,0.6), transparent 70%);
-  top: -100px;
-  left: -100px;
-  filter: blur(60px);
-}
-
-.cover-front::after {
-  content: "";
-  position: absolute;
-  width: 300px;
-  height: 300px;
-  background: radial-gradient(circle, rgba(255,182,193,0.4), transparent 70%);
-  bottom: -80px;
-  right: -80px;
-  filter: blur(60px);
-}
-
-.cover-front .inner {
-  position: relative;
-  z-index: 2;
-}
-
-/* judul */
-.cover-front h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 42px;
-  color: #9f1239;
-  margin-bottom: 10px;
-}
-
-/* subtitle */
-.cover-front p {
-  font-family: 'Inter', sans-serif;
-  font-size: 16px;
-  color: #6b7280;
-  line-height: 1.6;
-}
-
-/* garis */
-.cover-line {
-  width: 60px;
-  height: 2px;
-  background: #e11d48;
-  margin: 20px auto;
-  opacity: 0.6;
-}
-
-/* animasi masuk */
-.cover-front .inner {
-  animation: fadeUp 1s ease;
-}
-
-/* garis dekorasi */
-.cover-line {
-  width: 60px;
-  height: 2px;
-  background: #e11d48;
-  margin: 20px auto;
-  opacity: 0.6;
-}
-
-/* ===== COVER BELAKANG ===== */
-.cover-back {
-  border-radius: 24px;
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-
-  background: linear-gradient(160deg, #7f1d1d, #be123c);
-  color: #fff;
-}
-
-/* glow background */
-.cover-back::before {
-  content: "";
-  position: absolute;
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(255,255,255,0.15), transparent 70%);
-  top: -100px;
-  right: -100px;
-  filter: blur(80px);
-}
-
-/* tambahan layer lembut */
-.cover-back::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at bottom left, rgba(255,255,255,0.08), transparent 60%);
-}
-
-/* konten */
-.cover-back .inner {
-  position: relative;
-  z-index: 2;
-  max-width: 500px;
-}
-
-/* quote */
-.cover-back h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 30px;
-  font-weight: 600;
-  line-height: 1.6;
-  margin-bottom: 25px;
-}
-
-/* garis kecil */
-.cover-divider {
-  width: 50px;
-  height: 2px;
-  background: rgba(255,255,255,0.6);
-  margin: 20px auto;
-}
-
-/* signature */
-.signature {
-  font-family: 'DM Serif Text', serif;
-  font-size: 16px;
-  opacity: 0.85;
-  letter-spacing: 1px;
-}
-
-/* animasi halus */
-.cover-back .inner {
-  animation: fadeUp 1.2s ease;
-}
-
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(25px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* TEXT */
-h2 {
-  font-family: 'Playfair Display', serif;
-}
-
-.font-romantic {
-  font-family: 'DM Serif Text', serif;
-}
-
-.font-clean {
-  font-family: 'Inter', sans-serif;
-}
-
-.font-modern {
-  font-family: 'Poppins', sans-serif;
-}
-
-.font-classic {
-  font-family: 'Libre Baskerville', serif;
-}
-
-.halaman {
-  padding: 30px;
-  min-height: 300px;
-}
-
-p {
-  font-size: 19px;
-  line-height: 1.9;
-}
-
-.photo {
-  margin-top: 20px;
-}
-
-/* SINGLE IMAGE (default) */
-.photo.single {
-  display: flex;
-  justify-content: center;
-}
-
-/* MULTIPLE IMAGES */
-.photo.multiple {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 30px;
-}
-
-/* kalau 3 foto */
-.photo.multiple.three {
-  grid-template-columns: repeat(3, 1fr);
-}
-
-/* gambar umum */
-.photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 14px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
-  transition: transform 0.4s ease;
-}
-
-.photo img:hover {
-  transform: scale(1.04);
-}
-
-/* portrait fix */
-.photo-portrait img {
-  height: 100%;
-}
-
-/* responsive */
-@media (max-width: 600px) {
-  .photo.multiple {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* LANDSCAPE (melebar) */
-.photo-landscape img {
-  width: 100%; padding: 10px;
-  max-height: 100%;
-  object-fit: cover;
-  border-radius: 16px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-}
-
-/* PORTRAIT (tinggi) */
-.photo-portrait img {
-  width: 100%;
-  max-height: 100%;
-  border-radius: 16px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-}
-
-/* efek lembut */
-.photo img {
-  transition: transform 0.5s ease;
-}
-
-.photo:hover img {
-  transform: scale(1.05);
-}
-
-/* FOOTER */
-.footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  height: 80px;
-  background: rgba(255,255,255,0.8);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-}
-
-button {
-  padding: 10px 20px;
-  border-radius: 999px;
-  border: none;
-  background: var(--accent);
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-/* PROPOSAL */
-.proposal {
-  text-align: center;
-}
-
-.heart {
-  font-size: 40px;
-  animation: beat 1s infinite;
-}
-
-.map-container {
-  position: relative;
-  width: 100%;
-  padding-bottom: 56.25%; /* 16:9 ratio */
-  margin-top: 20px;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-}
-
-.map-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
-
-#countdown {
-  font-family: 'Playfair Display', serif;
-  font-size: 28px;
-  font-weight: 600;
-  color: #9f1239;
-
-  margin-top: 20px;
-  letter-spacing: 1.5px;
-  text-align: center;
-
-  line-height: 1.6;
-}
-
-/* versi angka lebih tegas */
-#countdown span {
-  font-family: 'Poppins', sans-serif;
-  font-size: 30px;
-  font-weight: 700;
-  color: #e11d48;
-}
-
-@keyframes beat {
-  0%,100% { transform: scale(1);}
-  50% { transform: scale(1.2);}
-}
-.music-control {
-  position: absolute;
-  right: 20px;
-  cursor: pointer;
-  z-index: 9999;
-}
-
-/* DISK */
-.disk {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-
-  background: radial-gradient(circle at center, #111 20%, #444 21%, #111 40%, #000 70%);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-
-  position: relative;
-}
-
-/* lubang tengah */
-.disk::after {
-  content: "";
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  background: #ccc;
-  border-radius: 50%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 9999;
-}
-
-/* ANIMASI PUTAR */
-.spin {
-  animation: spin 3s linear infinite;
-}
-
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Untuk Kamu ❤️</title>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400&family=DM+Serif+Text&family=Poppins:wght@300;400&family=Libre+Baskerville&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --bg: #fff7f9;
+      --text: #3a2e2e;
+      --accent: #e11d48;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      font-family: 'Crimson Text', serif;
+      color: var(--text);
+    }
+
+    /* HEADER */
+    .header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      height: 70px;
+      z-index: 9999;
+
+      backdrop-filter: blur(14px);
+      background: rgba(255, 255, 255, 0.75);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .header-inner {
+      width: 100%;
+      max-width: 1100px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+    }
+
+    /* BRAND */
+    .brand {
+      font-size: 16px;
+      font-weight: 600;
+      color: #9f1239;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* NAV */
+    .nav {
+      display: flex;
+      gap: 18px;
+    }
+
+    .nav a {
+      text-decoration: none;
+      font-family: 'Poppins', sans-serif;
+      font-size: 14px;
+      color: #444;
+      padding: 8px 12px;
+      border-radius: 999px;
+      transition: 0.3s ease;
+    }
+
+    .nav a:hover {
+      background: #ffe4e6;
+      color: #9f1239;
+    }
+
+    /* HAMBURGER */
+    .menu-toggle {
+      display: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: #9f1239;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .nav {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        left: 0;
+
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+
+        flex-direction: column;
+        gap: 0;
+
+        overflow: hidden;
+        max-height: 0;
+        transition: 0.3s ease;
+      }
+
+      .nav a {
+        padding: 14px 20px;
+        border-radius: 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      }
+
+      .nav.active {
+        max-height: 300px;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+    }
+
+    /* READER */
+    .reader {
+      max-width: 700px;
+      margin: 100px auto 120px;
+      padding: 20px;
+    }
+
+    /* PAGE */
+    .page {
+      display: none;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+      animation: fade 0.6s ease;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    @keyframes fade {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+
+
+    .cover-front img,
+    .cover-back img {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      display: block;
+      margin: auto;
+    }
+
+    .cover-front {
+      border-radius: 24px;
+      position: relative;
+      overflow: hidden;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+
+      background: linear-gradient(140deg, #fff1f2, #ffe4e6);
+    }
+
+    /* efek glow lembut */
+    .cover-front::before {
+      content: "";
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.6), transparent 70%);
+      top: -100px;
+      left: -100px;
+      filter: blur(60px);
+    }
+
+    .cover-front::after {
+      content: "";
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(255, 182, 193, 0.4), transparent 70%);
+      bottom: -80px;
+      right: -80px;
+      filter: blur(60px);
+    }
+
+    .cover-front .inner {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* judul */
+    .cover-front h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 42px;
+      color: #9f1239;
+      margin-bottom: 10px;
+    }
+
+    /* subtitle */
+    .cover-front p {
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      color: #6b7280;
+      line-height: 1.6;
+    }
+
+    /* garis */
+    .cover-line {
+      width: 60px;
+      height: 2px;
+      background: #e11d48;
+      margin: 20px auto;
+      opacity: 0.6;
+    }
+
+    /* animasi masuk */
+    .cover-front .inner {
+      animation: fadeUp 1s ease;
+    }
+
+    /* garis dekorasi */
+    .cover-line {
+      width: 60px;
+      height: 2px;
+      background: #e11d48;
+      margin: 20px auto;
+      opacity: 0.6;
+    }
+
+    /* ===== COVER BELAKANG ===== */
+    .cover-back {
+      border-radius: 24px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+
+      background: linear-gradient(160deg, #7f1d1d, #be123c);
+      color: #fff;
+    }
+
+    /* glow background */
+    .cover-back::before {
+      content: "";
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.15), transparent 70%);
+      top: -100px;
+      right: -100px;
+      filter: blur(80px);
+    }
+
+    /* tambahan layer lembut */
+    .cover-back::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at bottom left, rgba(255, 255, 255, 0.08), transparent 60%);
+    }
+
+    /* konten */
+    .cover-back .inner {
+      position: relative;
+      z-index: 2;
+      max-width: 500px;
+    }
+
+    /* quote */
+    .cover-back h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 30px;
+      font-weight: 600;
+      line-height: 1.6;
+      margin-bottom: 25px;
+    }
+
+    /* garis kecil */
+    .cover-divider {
+      width: 50px;
+      height: 2px;
+      background: rgba(255, 255, 255, 0.6);
+      margin: 20px auto;
+    }
+
+    /* signature */
+    .signature {
+      font-family: 'DM Serif Text', serif;
+      font-size: 16px;
+      opacity: 0.85;
+      letter-spacing: 1px;
+    }
+
+    /* animasi halus */
+    .cover-back .inner {
+      animation: fadeUp 1.2s ease;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(25px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* TEXT */
+    h2 {
+      font-family: 'Playfair Display', serif;
+    }
+
+    .font-romantic {
+      font-family: 'DM Serif Text', serif;
+    }
+
+    .font-clean {
+      font-family: 'Inter', sans-serif;
+    }
+
+    .font-modern {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .font-classic {
+      font-family: 'Libre Baskerville', serif;
+    }
+
+    .halaman {
+      padding: 30px;
+      min-height: 300px;
+    }
+
+    p {
+      font-size: 19px;
+      line-height: 1.9;
+    }
+
+    .photo {
+      margin-top: 20px;
+    }
+
+    /* SINGLE IMAGE (default) */
+    .photo.single {
+      display: flex;
+      justify-content: center;
+    }
+
+    /* MULTIPLE IMAGES */
+    .photo.multiple {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+    }
+
+    /* kalau 3 foto */
+    .photo.multiple.three {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* gambar umum */
+    .photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 14px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+      transition: transform 0.4s ease;
+    }
+
+    .photo img:hover {
+      transform: scale(1.04);
+    }
+
+    /* portrait fix */
+    .photo-portrait img {
+      height: 100%;
+    }
+
+    /* responsive */
+    @media (max-width: 600px) {
+      .photo.multiple {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* LANDSCAPE (melebar) */
+    .photo-landscape img {
+      width: 100%;
+      padding: 10px;
+      max-height: 100%;
+      object-fit: cover;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    /* PORTRAIT (tinggi) */
+    .photo-portrait img {
+      width: 100%;
+      max-height: 100%;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    /* efek lembut */
+    .photo img {
+      transition: transform 0.5s ease;
+    }
+
+    .photo:hover img {
+      transform: scale(1.05);
+    }
+
+    /* FOOTER */
+    .footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      height: 80px;
+      background: rgba(255, 255, 255, 0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      border-radius: 999px;
+      border: none;
+      background: var(--accent);
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    /* PROPOSAL */
+    .proposal {
+      text-align: center;
+    }
+
+    .heart {
+      font-size: 40px;
+      animation: beat 1s infinite;
+    }
+
+    .map-container {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+      /* 16:9 ratio */
+      margin-top: 20px;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .map-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    #countdown {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 600;
+      color: #9f1239;
+
+      margin-top: 20px;
+      letter-spacing: 1.5px;
+      text-align: center;
+
+      line-height: 1.6;
+    }
+
+    /* versi angka lebih tegas */
+    #countdown span {
+      font-family: 'Poppins', sans-serif;
+      font-size: 30px;
+      font-weight: 700;
+      color: #e11d48;
+    }
+
+    @keyframes beat {
+
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.2);
+      }
+    }
+
+    .music-control {
+      position: absolute;
+      right: 20px;
+      cursor: pointer;
+      z-index: 9999;
+    }
+
+    /* DISK */
+    .disk {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+
+      background: radial-gradient(circle at center, #111 20%, #444 21%, #111 40%, #000 70%);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+
+      position: relative;
+    }
+
+    /* lubang tengah */
+    .disk::after {
+      content: "";
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: #ccc;
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 9999;
+    }
+
+    /* ANIMASI PUTAR */
+    .spin {
+      animation: spin 3s linear infinite;
+    }
+
+    @keyframes spin {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
 </head>
 
 <body>
-<div class="music-control" id="musicControl">
-  <div class="disk"></div>
-</div>
-<div class="header">📖 Sebuah Cerita Untuk Kamu, Diva</div>
+  <div class="music-control" id="musicControl">
+    <div class="disk"></div>
+  </div>
+  <div class="header">
+    <div class="header-inner">
 
-<div class="reader" id="reader"></div>
+      <div class="brand">
+        📖 <span>Sebuah Cerita Untuk Kamu, Diva</span>
+      </div>
 
-<div class="footer">
-  <button id="prev">←</button>
-  <button id="next">→</button>
-</div>
+      <div class="nav">
+        <a href="index.html">📚 Story</a>
+        <a href="https://almayrizqd.github.io" target="_blank">💌 Invitation</a>
+        <a href="gallery.html">📸 Gallery</a>
+      </div>
 
-<script>
-const pagesData = [
+      <div class="menu-toggle" id="menuToggle">☰</div>
+    </div>
+  </div>
 
-{
-  content: `
+
+  <div class="reader" id="reader"></div>
+
+  <div class="footer">
+    <button id="prev">←</button>
+    <button id="next">→</button>
+  </div>
+
+  <script>
+    const pagesData = [
+
+      {
+        content: `
   <div class="cover-front">
     <img src="images/cover-depan.jpeg" alt="Cover Depan">
   </div>`
-},
+      },
 
-{
-  content: `
+      {
+        content: `
   <div class="halaman font-clean">
     <h2>Awal yang Sederhana</h2>
     <p>Awalnya cuma dari sebuah swipe biasa di Bumble.</p>
@@ -501,10 +631,10 @@ const pagesData = [
     </div>
 
   </div>`
-},
+      },
 
-{
-  content: `
+      {
+        content: `
   <div class="halaman font-modern">
     <h2>Dua Minggu yang Aneh</h2>
     <p>Kita chat, telpon… hampir setiap hari.</p>
@@ -520,10 +650,10 @@ const pagesData = [
       <img src="images/fotoaku2.jpeg" alt="Foto Aku">
     </div>
   </div>`
-},
+      },
 
-{
-  content: `
+      {
+        content: `
   <div class="halaman font-modern">
     <h2>Dua Minggu yang Aneh</h2>
     <p>Lucunya, rasanya kayak udah kenal lama, padahal belum pernah ketemu.</p>
@@ -537,10 +667,10 @@ const pagesData = [
     <p>Klik lagii yahh undangannya hehe...</p>
     <a href="https://almayrizqd.github.io" target="_blank" style="color: var(--accent); font-weight: 500;">https://almayrizqd.github.io</a>
   </div>`
-},
+      },
 
-{
-  content: `
+      {
+        content: `
   <div class="halaman font-classic">
     <h2>Akhirnya Bertemu</h2>
     <p>Kemarin, di Pakuwon Mall Bekasi…</p>
@@ -556,10 +686,10 @@ const pagesData = [
       <img src="images/ketemu3.jpeg" alt="Yeyy Ketemu">
     </div>
   </div>`
-},
+      },
 
-{
-  content: `
+      {
+        content: `
   <div class="halaman font-romantic">
     <h2>Gallery Foto-foto Kitaaa</h2>
     <div class="photo multiple photo-portrait">
@@ -573,10 +703,10 @@ const pagesData = [
       <img src="images/ketemu5.jpeg" alt="Yeyy Ketemu 5">
     </div>
   </div>`
-},
+      },
 
-{
-  content: `
+      {
+        content: `
 <div class="halaman font-clean">
   <div class="proposal">
     <div class="heart">❤️</div>
@@ -593,9 +723,9 @@ const pagesData = [
     <p>Sampai ketemu lagi di tanggal 16 Mei yaa Diva... 😊</p>
   </div>
 </div>`
-},
-{
-  content: `
+      },
+      {
+        content: `
 <div class="halaman font-clean">
   <div class="proposal">
     <div class="heart">❤️</div>
@@ -634,114 +764,124 @@ const pagesData = [
     </p>
   </div>
 </div>`
-},
+      },
 
-  {
-    content: `
+      {
+        content: `
 <div class="cover-back">
   <img src="images/cover-belakang.jpeg" alt="Cover Belakang">
 </div>`
-  }
+      }
 
-];
+    ];
 
-const reader = document.getElementById("reader");
-let currentPage = 0;
-let pages = [];
+    const reader = document.getElementById("reader");
+    let currentPage = 0;
+    let pages = [];
 
-function render() {
-  pagesData.forEach(p => {
-    const div = document.createElement("div");
-    div.className = "page";
-    div.innerHTML = p.content;
-    reader.appendChild(div);
-    pages.push(div);
-  });
-}
-
-function showPage(i) {
-  pages.forEach(p => p.classList.remove("active"));
-  pages[i].classList.add("active");
-}
-
-function nextPage() {
-  if (currentPage < pages.length - 1) {
-    currentPage++;
-    showPage(currentPage);
-  }
-}
-
-function prevPage() {
-  if (currentPage > 0) {
-    currentPage--;
-    showPage(currentPage);
-  }
-}
-
-
-
-render();
-
-document.getElementById("next").onclick = nextPage;
-document.getElementById("prev").onclick = prevPage;
-
-showPage(0);
-
-function startCountdown() {
-  const countdownEl = document.getElementById("countdown");
-  if (!countdownEl) return;
-
-  // target: 16 Mei 2026 jam 00:00
-  const targetDate = new Date("May 16, 2026 00:00:00").getTime();
-
-  function updateCountdown() {
-    const now = new Date().getTime();
-    const distance = targetDate - now;
-
-    if (distance < 0) {
-      countdownEl.innerHTML = "✨ Hari ini kita ketemu 😊";
-      return;
+    function render() {
+      pagesData.forEach(p => {
+        const div = document.createElement("div");
+        div.className = "page";
+        div.innerHTML = p.content;
+        reader.appendChild(div);
+        pages.push(div);
+      });
     }
 
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
-    const minutes = Math.floor((distance / (1000 * 60)) % 60);
-    const seconds = Math.floor((distance / 1000) % 60);
+    function showPage(i) {
+      pages.forEach(p => p.classList.remove("active"));
+      pages[i].classList.add("active");
+    }
 
-    countdownEl.innerHTML =
-  `<span>${days}</span> hari 
+    function nextPage() {
+      if (currentPage < pages.length - 1) {
+        currentPage++;
+        showPage(currentPage);
+      }
+    }
+
+    function prevPage() {
+      if (currentPage > 0) {
+        currentPage--;
+        showPage(currentPage);
+      }
+    }
+
+
+
+    render();
+
+    document.getElementById("next").onclick = nextPage;
+    document.getElementById("prev").onclick = prevPage;
+
+    showPage(0);
+
+    function startCountdown() {
+      const countdownEl = document.getElementById("countdown");
+      if (!countdownEl) return;
+
+      // target: 16 Mei 2026 jam 00:00
+      const targetDate = new Date("May 16, 2026 00:00:00").getTime();
+
+      function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = targetDate - now;
+
+        if (distance < 0) {
+          countdownEl.innerHTML = "✨ Hari ini kita ketemu 😊";
+          return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((distance / (1000 * 60)) % 60);
+        const seconds = Math.floor((distance / 1000) % 60);
+
+        countdownEl.innerHTML =
+          `<span>${days}</span> hari 
    <span>${hours}</span> jam 
    <span>${minutes}</span> menit 
    <span>${seconds}</span> detik`;
-  }
+      }
 
-  updateCountdown();
-  setInterval(updateCountdown, 1000);
-}
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+    }
 
-startCountdown();
-</script>
-<audio id="bg-music" loop>
-  <source src="./music2.mp3" type="audio/mpeg">
-</audio>
-<script>
-const music = document.getElementById("bg-music");
-const musicBtn = document.getElementById("musicControl");
-const disk = document.querySelector(".disk");
+    startCountdown();
+  </script>
+  <audio id="bg-music" loop>
+    <source src="./music2.mp3" type="audio/mpeg">
+  </audio>
+  <script>
+    const music = document.getElementById("bg-music");
+    const musicBtn = document.getElementById("musicControl");
+    const disk = document.querySelector(".disk");
 
-let isPlaying = false;
+    let isPlaying = false;
 
-musicBtn.addEventListener("click", () => {
-  if (isPlaying) {
-    music.pause();
-    disk.classList.remove("spin");
-  } else {
-    music.play().catch(err => console.log(err));
-    disk.classList.add("spin");
-  }
-  isPlaying = !isPlaying;
-});
-</script>
+    musicBtn.addEventListener("click", () => {
+      if (isPlaying) {
+        music.pause();
+        disk.classList.remove("spin");
+      } else {
+        music.play().catch(err => console.log(err));
+        disk.classList.add("spin");
+      }
+      isPlaying = !isPlaying;
+    });
+  </script>
+
+  <script>
+    const menuToggle = document.getElementById("menuToggle");
+    const nav = document.querySelector(".nav");
+
+    menuToggle.addEventListener("click", () => {
+      nav.classList.toggle("active");
+    });
+  </script>
 
 </body>
+
 </html>
