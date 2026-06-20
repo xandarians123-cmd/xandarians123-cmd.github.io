@@ -278,11 +278,13 @@ video {
 ===================== */
 
 .button-group {
-
+    position: fixed;
+    top: 10px;
+    right: 15px;
     display: flex;
-    flex-wrap: wrap;
-
-    gap: 12px;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 20px;
 }
 
 button {
@@ -292,8 +294,6 @@ button {
     cursor: pointer;
 
     border-radius: 999px;
-
-    padding: 14px 28px;
 
     font-size: 14px;
     font-weight: 600;
@@ -321,6 +321,10 @@ button:disabled {
     background: var(--gold);
 
     color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 35px;
 }
 
 #retakeBtn {
@@ -330,6 +334,10 @@ button:disabled {
     border: 1px solid var(--gold);
 
     color: var(--gold-dark);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 35px;
 }
 
 #downloadBtn {
@@ -337,6 +345,10 @@ button:disabled {
     background: #304f4f;
 
     color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 35px;
 }
 
 /* =====================
@@ -578,4 +590,67 @@ button:disabled {
         transform:
             translateY(0) scale(1);
     }
+}
+
+.session-progress {
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 28px;
+}
+
+.photo-counter {
+
+    padding: 10px 22px;
+
+    border-radius: 999px;
+
+    background: rgba(255, 255, 255, .75);
+
+    backdrop-filter: blur(10px);
+
+    border: 1px solid var(--border);
+
+    color: var(--gold-dark);
+
+    font-weight: 600;
+
+    font-size: 15px;
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, .08);
+}
+
+.progress-dots {
+
+    display: flex;
+
+    gap: 12px;
+}
+
+.dot {
+
+    width: 12px;
+    height: 12px;
+
+    border-radius: 50%;
+
+    background: #d7d7d7;
+
+    transition: .3s;
+}
+
+.dot.active {
+
+    background: var(--gold);
+
+    transform: scale(1.25);
+
+    box-shadow:
+        0 0 16px rgba(199, 168, 107, .5);
 }

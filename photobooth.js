@@ -1,3 +1,4 @@
+
 const retakeBtn = document.getElementById("retakeBtn");
 const templateSelect = document.getElementById("templateSelect");
 const templateStylesheet = document.getElementById("templateStylesheet");
@@ -7,6 +8,11 @@ const countdown = document.getElementById("countdown");
 const captureCanvas = document.getElementById("captureCanvas");
 const stripCanvas = document.getElementById("stripCanvas");
 const downloadBtn = document.getElementById("downloadBtn");
+const photoCounter =
+    document.getElementById("photoCounter");
+
+const dots =
+    document.querySelectorAll(".dot");
 const orientationModal =
     document.getElementById("orientationModal");
 
@@ -18,6 +24,26 @@ const stripCtx = stripCanvas.getContext("2d");
 
 let photos = [];
 let isRendering = false;
+
+function updateProgress(current) {
+
+    photoCounter.textContent =
+        `📷 ${current} / 4`;
+
+    dots.forEach((dot, index) => {
+
+        dot.classList.toggle(
+            "active",
+            index < current
+        );
+
+    });
+
+}
+
+photos = [];
+
+updateProgress(0);
 
 function isPortrait() {
 
@@ -92,6 +118,7 @@ async function startPhotobooth() {
         countdown.textContent = "📸";
 
         await capturePhoto();
+        updateProgress(i + 1);
         await wait(400);
     }
 
