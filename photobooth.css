@@ -454,3 +454,128 @@ button:disabled {
         width: 100%;
     }
 }
+
+.orientation-modal {
+
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0, 0, 0, .55);
+
+    backdrop-filter: blur(10px);
+
+    display: none;
+
+    justify-content: center;
+    align-items: center;
+
+    z-index: 99999;
+}
+
+.orientation-modal.show {
+
+    display: flex;
+}
+
+.orientation-card {
+
+    width: calc(100% - 40px);
+    max-width: 360px;
+
+    background: white;
+
+    border-radius: 28px;
+
+    padding: 36px 28px;
+
+    text-align: center;
+
+    box-shadow:
+        0 30px 60px rgba(0, 0, 0, .25);
+
+    animation: modalPop .25s ease;
+}
+
+.orientation-icon {
+
+    font-size: 64px;
+
+    margin-bottom: 18px;
+}
+
+.orientation-card h2 {
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 38px;
+
+    color: var(--gold);
+
+    margin-bottom: 12px;
+}
+
+.orientation-card p {
+
+    font-size: 15px;
+
+    line-height: 1.8;
+
+    color: #666;
+
+    margin-bottom: 28px;
+}
+
+.orientation-card strong {
+
+    color: var(--gold-dark);
+}
+
+.orientation-card button {
+
+    width: 100%;
+
+    background: var(--gold);
+
+    color: white;
+
+    border: none;
+
+    border-radius: 999px;
+
+    padding: 16px;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+.orientation-card button:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, .15);
+}
+
+@keyframes modalPop {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(20px) scale(.95);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0) scale(1);
+    }
+}

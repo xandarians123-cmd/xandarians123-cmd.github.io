@@ -7,12 +7,24 @@ const countdown = document.getElementById("countdown");
 const captureCanvas = document.getElementById("captureCanvas");
 const stripCanvas = document.getElementById("stripCanvas");
 const downloadBtn = document.getElementById("downloadBtn");
+const orientationModal =
+    document.getElementById("orientationModal");
+
+const closeOrientationModal =
+    document.getElementById("closeOrientationModal");
 
 const captureCtx = captureCanvas.getContext("2d");
 const stripCtx = stripCanvas.getContext("2d");
 
 let photos = [];
 let isRendering = false;
+
+function isPortrait() {
+
+    return window.innerHeight >
+        window.innerWidth;
+
+}
 
 // ================= CSS HELPER (IMPORTANT FIX) =================
 function getCssVar(name, fallback = "") {
@@ -321,4 +333,21 @@ retakeBtn.addEventListener("click", async () => {
 });
 
 // ================= START =================
-startBtn.addEventListener("click", startPhotobooth);
+startBtn.addEventListener("click", () => {
+
+    if (isPortrait()) {
+
+        orientationModal.classList.add("show");
+
+        return;
+    }
+
+    startPhotobooth();
+
+});
+
+closeOrientationModal.addEventListener("click", () => {
+
+    orientationModal.classList.remove("show");
+
+});
