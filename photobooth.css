@@ -1,0 +1,456 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+
+    --gold: #c7a86b;
+    --gold-dark: #a4874e;
+
+    --ivory: #f8f4ef;
+    --cream: #fffdfb;
+
+    --text: #2f2b27;
+    --muted: #8f887f;
+
+    --border: rgba(199, 168, 107, .20);
+}
+
+body {
+
+    min-height: 100vh;
+
+    background:
+        radial-gradient(circle at top left,
+            rgba(199, 168, 107, .15),
+            transparent 30%),
+        radial-gradient(circle at bottom right,
+            rgba(199, 168, 107, .15),
+            transparent 30%),
+        var(--ivory);
+
+    font-family: "Inter", sans-serif;
+
+    padding: 40px 24px;
+}
+
+.container {
+    max-width: 1500px;
+    margin: auto;
+}
+
+.photobooth-layout {
+
+    display: flex;
+    gap: 32px;
+
+    align-items: flex-start;
+}
+
+/* =====================
+   CARD
+===================== */
+
+.camera-panel,
+.strip-panel {
+
+    background: rgba(255, 255, 255, .75);
+
+    backdrop-filter: blur(12px);
+
+    border-radius: 32px;
+
+    border: 1px solid var(--border);
+
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, .08);
+
+    padding: 30px;
+}
+
+.camera-panel {
+    flex: 1;
+}
+
+.strip-panel {
+    width: 380px;
+}
+
+/* =====================
+   HEADER
+===================== */
+
+.header {
+
+    text-align: center;
+
+    margin-bottom: 28px;
+}
+
+.wedding-monogram {
+
+    width: 90px;
+    height: 90px;
+
+    margin: 0 auto 18px;
+
+    border-radius: 50%;
+
+    border: 2px solid var(--gold);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: "Cormorant Garamond", serif;
+    font-size: 32px;
+    font-weight: 600;
+
+    color: var(--gold);
+}
+
+.header h1 {
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 54px;
+    font-weight: 600;
+
+    letter-spacing: 2px;
+
+    color: var(--gold);
+
+    margin-bottom: 6px;
+}
+
+.header p {
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 20px;
+
+    color: var(--muted);
+}
+
+/* =====================
+   CAMERA
+===================== */
+
+.camera-wrapper {
+    position: relative;
+}
+
+video {
+
+    width: 100%;
+
+    aspect-ratio: 4/3;
+
+    object-fit: cover;
+
+    border-radius: 24px;
+
+    border: 3px solid rgba(199, 168, 107, .25);
+
+    background: #000;
+
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, .15);
+}
+
+.camera-overlay {
+
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+}
+
+.corner {
+
+    position: absolute;
+
+    width: 45px;
+    height: 45px;
+
+    border: 3px solid rgba(255, 255, 255, .9);
+}
+
+.top-left {
+    top: 24px;
+    left: 24px;
+    border-right: none;
+    border-bottom: none;
+}
+
+.top-right {
+    top: 24px;
+    right: 24px;
+    border-left: none;
+    border-bottom: none;
+}
+
+.bottom-left {
+    bottom: 24px;
+    left: 24px;
+    border-right: none;
+    border-top: none;
+}
+
+.bottom-right {
+    bottom: 24px;
+    right: 24px;
+    border-left: none;
+    border-top: none;
+}
+
+/* =====================
+   COUNTDOWN
+===================== */
+
+#countdown {
+
+    text-align: center;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 90px;
+
+    color: var(--gold);
+
+    margin: 28px 0;
+
+    text-shadow:
+        0 8px 24px rgba(199, 168, 107, .25);
+}
+
+/* =====================
+   CONTROLS
+===================== */
+
+.controls {
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 20px;
+}
+
+.template-selector label {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: var(--text);
+
+    font-weight: 500;
+}
+
+.template-selector select {
+
+    width: 100%;
+
+    padding: 15px 18px;
+
+    border-radius: 16px;
+
+    border: 1px solid var(--border);
+
+    background: white;
+
+    font-size: 15px;
+
+    outline: none;
+}
+
+.template-selector select:focus {
+
+    border-color: var(--gold);
+}
+
+/* =====================
+   BUTTONS
+===================== */
+
+.button-group {
+
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 12px;
+}
+
+button {
+
+    border: none;
+
+    cursor: pointer;
+
+    border-radius: 999px;
+
+    padding: 14px 28px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: all .3s;
+}
+
+button:hover:not(:disabled) {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 24px rgba(0, 0, 0, .12);
+}
+
+button:disabled {
+
+    opacity: .5;
+
+    cursor: not-allowed;
+}
+
+#startBtn {
+
+    background: var(--gold);
+
+    color: white;
+}
+
+#retakeBtn {
+
+    background: white;
+
+    border: 1px solid var(--gold);
+
+    color: var(--gold-dark);
+}
+
+#downloadBtn {
+
+    background: #304f4f;
+
+    color: white;
+}
+
+/* =====================
+   PREVIEW
+===================== */
+
+.preview-header {
+
+    text-align: center;
+
+    margin-bottom: 20px;
+}
+
+.preview-header h2 {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 34px;
+
+    color: var(--gold);
+}
+
+.strip-wrapper {
+
+    display: flex;
+    justify-content: center;
+}
+
+#stripCanvas {
+
+    width: 100%;
+    max-width: 270px;
+
+    background: white;
+
+    border-radius: 6px;
+
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, .18);
+}
+
+/* =====================
+   FLASH
+===================== */
+
+.flash {
+
+    position: fixed;
+    inset: 0;
+
+    background: white;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    z-index: 9999;
+}
+
+.flash.active {
+    animation: flashAnimation .3s ease;
+}
+
+@keyframes flashAnimation {
+
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: .95;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+/* =====================
+   MOBILE
+===================== */
+
+@media (max-width: 992px) {
+
+    .photobooth-layout {
+        flex-direction: column;
+    }
+
+    .strip-panel {
+        width: 100%;
+    }
+
+    #stripCanvas {
+        max-width: 320px;
+    }
+}
+
+@media (max-width: 576px) {
+
+    .header h1 {
+        font-size: 40px;
+    }
+
+    #countdown {
+        font-size: 64px;
+    }
+
+    .button-group {
+        flex-direction: column;
+    }
+
+    button {
+        width: 100%;
+    }
+}

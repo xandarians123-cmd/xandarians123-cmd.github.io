@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Photobooth</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="photobooth.css">
+
+    <!-- Template CSS -->
+    <link id="templateStylesheet" rel="stylesheet" href="templates/template-classic.css">
+</head>
+
+<body>
+
+    <!-- Flash Effect -->
+    <div id="flash" class="flash"></div>
+
+    <div class="container">
+
+        <div class="photobooth-layout">
+
+            <!-- LEFT SIDE -->
+            <div class="camera-panel">
+
+                <div class="header">
+
+                    <div class="wedding-monogram">
+                        D & D
+                    </div>
+
+                    <h1>Wedding Photobooth</h1>
+
+                    <p>
+                        Capture Your Beautiful Moment
+                    </p>
+
+                </div>
+
+                <div class="camera-wrapper">
+
+                    <video id="video" autoplay playsinline>
+                    </video>
+
+                    <div class="camera-overlay">
+
+                        <div class="corner top-left"></div>
+                        <div class="corner top-right"></div>
+                        <div class="corner bottom-left"></div>
+                        <div class="corner bottom-right"></div>
+
+                    </div>
+
+                </div>
+
+                <div id="countdown">
+                    5
+                </div>
+
+                <div class="controls">
+
+                    <div class="template-selector">
+
+                        <label for="templateSelect">
+                            Photostrip Template
+                        </label>
+
+                        <select id="templateSelect">
+
+                            <option value="classic">
+                                Classic Wedding
+                            </option>
+
+                            <option value="pink">
+                                Pink
+                            </option>
+
+                            <option value="dark">
+                                Dark
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="button-group">
+
+                        <button id="startBtn">
+                            📸 Start Session
+                        </button>
+
+                        <button id="retakeBtn" disabled>
+                            🔄 Retake
+                        </button>
+
+                        <button id="downloadBtn" disabled>
+                            ⬇ Download
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- RIGHT SIDE -->
+            <div class="strip-panel">
+
+                <div class="preview-header">
+
+                    <h2>
+                        Photo Strip Preview
+                    </h2>
+
+                </div>
+
+                <div class="strip-wrapper">
+
+                    <canvas id="stripCanvas"></canvas>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Hidden Canvas -->
+        <canvas id="captureCanvas" hidden>
+        </canvas>
+
+    </div>
+
+    <script src="photobooth.js"></script>
+
+</body>
+
+</html>

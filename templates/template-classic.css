@@ -1,0 +1,10 @@
+:root {
+    --strip-bg: #ffffff;
+    --strip-border: #000000;
+    --strip-accent: #111111;
+    --strip-title-color: #111111;
+}
+
+.photostrip-title {
+    color: var(--strip-title-color);
+}
